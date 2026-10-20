@@ -745,7 +745,14 @@ function addCost(k,v){S.costs[k]+=v;renderCost();}
 
 /* ================= Tabs ================= */
 function go(tab){
+  const changed=!document.querySelector("#p-"+tab+".on");
   document.querySelectorAll("nav.tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===tab));
+  if(changed){
+    window.scrollTo({top:0,left:0,behavior:"instant"});
+    // on phones the tabs scroll sideways: bring the selected one into view without moving the page
+    const nav=document.querySelector("nav.tabs"),btn=nav.querySelector(`[data-tab="${tab}"]`);
+    if(btn&&nav.scrollWidth>nav.clientWidth)nav.scrollTo({left:btn.offsetLeft-nav.offsetLeft-16,behavior:"smooth"});
+  }
   document.querySelectorAll("section.panel").forEach(p=>p.classList.toggle("on",p.id==="p-"+tab));
   if(tab==="staff")renderTickets(); if(tab==="cost")renderCost();
   ["smsLog","chatLog"].forEach(id=>{const el=$(id);if(el)el.scrollTop=el.scrollHeight;});
