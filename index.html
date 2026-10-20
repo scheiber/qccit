@@ -45,7 +45,8 @@ button,input,select,textarea{font:inherit}
 :focus-visible{outline:3px solid var(--marigold);outline-offset:2px}
 
 /* Header band */
-.band{background:var(--midnight);color:#fff;border-bottom:4px solid var(--marigold)}
+.band{background:var(--midnight);color:#fff;border-bottom:4px solid var(--marigold);position:sticky;top:0;z-index:30;transition:box-shadow .2s}
+.band.scrolled{box-shadow:0 4px 14px rgba(0,0,0,.3)}
 .band-in{max-width:1240px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .mark{display:block;text-decoration:none;color:#fff;padding:14px 0;margin-right:20px}
 .mark .logo{height:48px;width:auto;display:block;color:#fff}
@@ -63,7 +64,7 @@ button,input,select,textarea{font:inherit}
 
 /* Layout */
 .wrap{max-width:1240px;margin:0 auto;padding:18px 20px 40px;display:grid;grid-template-columns:220px 1fr;gap:22px}
-nav.tabs{display:flex;flex-direction:column;gap:4px;position:sticky;top:12px;align-self:start}
+nav.tabs{display:flex;flex-direction:column;gap:4px;position:sticky;top:calc(var(--hdr,80px) + 16px);align-self:start}
 nav.tabs button{display:flex;align-items:center;gap:10px;text-align:left;border:0;background:transparent;padding:10px 12px;line-height:1.2;border-radius:8px;cursor:pointer;color:var(--on-page-2);font-weight:600}
 nav.tabs button svg{width:18px;height:18px;flex:none}
 nav.tabs button:hover{background:var(--nav-hover-bg);color:var(--nav-hover-fg)}
@@ -1136,7 +1137,16 @@ function seed(){
   S.tickets=mine.concat(seedTickets()).sort((a,b)=>b.created-a.created);
   S.seq=Math.max(S.seq||1001,1001); S.seedV=SEED_V; save();
 }
+/* sticky header: keep the side nav clear of it, and add a shadow once the page scrolls */
+function initHeader(){
+  const band=document.querySelector(".band");
+  const setH=()=>document.documentElement.style.setProperty("--hdr",band.offsetHeight+"px");
+  setH(); if(window.ResizeObserver)new ResizeObserver(setH).observe(band); else window.addEventListener("resize",setH);
+  const onScroll=()=>band.classList.toggle("scrolled",window.scrollY>4);
+  window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+}
 function boot(){
+  initHeader();
   load(); seed(); modeChip(); renderStatus(); renderSamples(); pipe([]); waveInit(); renderCalc(); renderTopics(); renderFeed(); renderCalls();
   $("fAsg").innerHTML='<option value="all">Anyone</option><option>Unassigned</option>'+STAFF.map(n=>`<option>${n}</option>`).join("");
   resetChat(); resetSms(); renderTickets(); renderCost();
