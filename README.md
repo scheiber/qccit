@@ -1,5 +1,7 @@
 # QCC IT Help Desk Demo
 
+## [See the live demo here!](https://qccit.scheiber.dev/)
+
 A clickable prototype of a virtual IT help desk for Queensborough Community College, built for a student proposal to replace the help desk phone line with AWS services (Amazon Connect, Lex, Transcribe, Translate, Polly, Lambda, DynamoDB, SNS).
 
 It is a single HTML file with no build step and no server. Open it in a browser and it works offline in demo mode.
