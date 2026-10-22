@@ -1,6 +1,6 @@
 # QCC IT Help Desk Demo
 
-## [See the live demo here!](https://qccit.scheiber.dev/)
+## [Click here to see the live demo!](https://qccit.scheiber.dev/)
 
 A clickable prototype of a virtual IT help desk for Queensborough Community College, built for a student proposal to replace the help desk phone line with AWS services (Amazon Connect, Lex, Transcribe, Translate, Polly, Lambda, DynamoDB, SNS).
 
@@ -8,9 +8,9 @@ It is a single HTML file with no build step and no server. Open it in a browser 
 
 > **Not an official service.** This is a student prototype. It is not affiliated with, endorsed by, or operated by CUNY or Queensborough Community College. Use made-up names and IDs only.
 
-## Running it
+## Running it locally
 
-1. Open `qcc-it-help-demo.html` in Chrome, Edge, Safari, or Firefox.
+1. Open `index.html` in Chrome, Edge, Safari, or Firefox.
 2. That's it. Everything (code, styles, fonts, logo, sample data) is inside the one file.
 
 For the best experience, use **Chrome or Edge**. They support both speaking and listening in the phone call demo. See [Browser notes](#browser-notes).
