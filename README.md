@@ -38,7 +38,7 @@ The left-hand navigation has seven sections.
 
 ## Where the content comes from
 
-- **Assistant answers:** only from the *CUNY IT Help: Common Questions and Quick Fixes* Q&A, which is adapted from the CUNY IT Help portal (cunyithelp.cuny.edu). The assistant never makes up an answer; anything outside that content is handed off to a person as a ticket. Confirm that CUNY allows reuse of its portal text before publishing.
+- **Assistant answers:** only from the *CUNY IT Help: Common Questions and Quick Fixes* Q&A, which is adapted from the CUNY IT Help portal (cunyithelp.cuny.edu). The assistant never makes up an answer; anything outside that content is handed off to a person as a ticket.
 - **Costs:** per-unit AWS rates from the project's cost risk analysis:
 
   | Item | Rate |
@@ -123,14 +123,14 @@ The page follows the *Queensborough Community College Identity Standards* (2018)
 
 **Known small deviations:** a few neutral grays outside the guide's palette (helper text, the record light's off state, one note in the call panel). The text-message phone mockup also uses iPhone-style grays and the device's system font on purpose. Interstate is used for small helper text, where the guide's rule of thumb is Archer.
 
-### Fonts and licensing
+### Fonts
 
-Interstate and Archer are commercial typefaces (Font Bureau and Hoefler&Co). The file embeds Latin-only subsets made from the college's licensed font files, with these changes for consistent rendering across systems:
+The file embeds Latin-only subsets of Interstate and Archer, with these changes for consistent rendering across systems:
 
 - vertical metrics unified, which fixed bold text sitting too high on macOS
 - hinting removed and full smoothing enabled, which fixed jagged text on Windows
 
-The letter shapes are unchanged. Because the fonts are embedded, **anyone who receives the HTML file also receives the fonts.** Archer's files are marked for preview and print embedding only. Presenting from your own computer is fine, but check that the college's web font license covers it before posting the file publicly.
+The letter shapes are unchanged.
 
 ## Browser notes
 
@@ -148,8 +148,14 @@ The letter shapes are unchanged. Because the fonts are embedded, **anyone who re
 
 | File | Description |
 |---|---|
-| `qcc-it-help-demo.html` | The demo (single file, about 250 KB). |
+| `index.html` | The demo (single file, about 330 KB). |
 | `README.md` | This file. |
+| `CNAME` | Custom domain for the hosted demo. |
+
+These source documents aren't in this repository; they're kept with the project's other materials:
+
+| File | Description |
+|---|---|
 | `Help Desk QA .pdf` | Source content for the assistant's answers. |
 | `Cost Risk Analysis Replacing the Phone System with AWS Standard Account.pdf` | Source for the cost rates and scenarios. |
 | `QCCIdentityStandards.pdf` | Brand guidelines the design follows. |

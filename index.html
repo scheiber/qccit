@@ -3353,6 +3353,15 @@
           themeV: 2,
         },
       };
+      let storageWarned = false;
+      function storageWarn() {
+        if (storageWarned) return;
+        storageWarned = true;
+        toast(
+          "<b>Tickets won't be saved</b> in this browser. They'll be lost when you reload or close the page.",
+          8000,
+        );
+      }
       function save() {
         try {
           localStorage.setItem(
@@ -3364,11 +3373,20 @@
               seedV: S.seedV,
             }),
           );
-        } catch (e) {}
+        } catch (e) {
+          storageWarn();
+        }
       }
       function load() {
+        let raw;
         try {
-          const d = JSON.parse(localStorage.getItem("qccItDemo") || "null");
+          raw = localStorage.getItem("qccItDemo");
+        } catch (e) {
+          storageWarn();
+          return;
+        }
+        try {
+          const d = JSON.parse(raw || "null");
           if (d) {
             S.tickets = d.tickets || [];
             S.seq = d.seq || 1001;
@@ -3380,7 +3398,12 @@
             }
             S.settings = Object.assign(S.settings, d.settings || {});
           }
-        } catch (e) {}
+        } catch (e) {
+          toast(
+            "<b>Saved demo data couldn't be read</b>, so the sample tickets were restored.",
+            8000,
+          );
+        }
       }
       function money(v, d = 3) {
         return "$" + v.toFixed(d);
@@ -3716,7 +3739,13 @@
         );
         const csv = rows
           .map((r) =>
-            r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(","),
+            r
+              .map((v) => {
+                // a leading ' stops spreadsheets running the value as a formula
+                const s = String(v).replace(/^[=+\-@\t\r]/, "'$&");
+                return `"${s.replace(/"/g, '""')}"`;
+              })
+              .join(","),
           )
           .join("\n");
         const a = document.createElement("a");
@@ -3733,6 +3762,7 @@
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text, sessionId: session }),
+            signal: AbortSignal.timeout(8000),
           });
           if (!r.ok) throw new Error(r.status);
           const j = await r.json();
@@ -3740,7 +3770,9 @@
         } catch (e) {
           toast(
             "<b>Live mode failed</b>, using built-in answers. (" +
-              esc(e.message || e) +
+              (e.name === "TimeoutError"
+                ? "no reply after 8 seconds"
+                : esc(e.message || e)) +
               ")",
           );
           return null;
