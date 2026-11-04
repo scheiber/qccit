@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>QCC IT Help Demo</title>
+    <title>QCC TSSC Demo</title>
     <!-- favicons embedded as data URIs so the demo stays one file: classic .ico, a sharp SVG, and an iOS home-screen icon -->
     <link
       rel="icon"
@@ -1873,7 +1873,7 @@
         <a
           class="mark"
           href="#"
-          aria-label="Queensborough Community College IT Help Desk, demo home"
+          aria-label="Queensborough Community College Technology Support &amp; Service Center, demo home"
           onclick="
             go('chat');
             return false;
@@ -2088,7 +2088,7 @@
           </svg>
         </a>
         <div class="site">
-          <span class="t1">IT Help Desk</span>
+          <span class="t1">Technology Support &amp; Service Center</span>
           <span class="t2">Virtual assistant</span>
         </div>
         <span class="spacer"></span>
@@ -2201,7 +2201,7 @@
           <div class="kicker">Channel 1 &middot; Amazon Connect chat + Lex</div>
           <h2>Ask the virtual help desk</h2>
           <p class="lede">
-            Answers come only from approved content (the CUNY IT Help Q&amp;A).
+            Answers come only from approved content (the TSSC Q&amp;A).
             Anything else becomes a ticket for a person, so the bot never
             invents an answer.
           </p>
@@ -2212,7 +2212,7 @@
                   <svg viewBox="3 2.5 120 99"><use href="#qcc-icon" /></svg>
                 </div>
                 <div>
-                  <b style="color: var(--midnight)">QCC IT Help assistant</b>
+                  <b style="color: var(--midnight)">QCC TSSC assistant</b>
                   <div class="muted">
                     Usually answers instantly &middot; Hand-off to staff anytime
                   </div>
@@ -2292,7 +2292,7 @@
                     <div class="who" aria-hidden="true">
                       <svg viewBox="3 2.5 120 99"><use href="#qcc-icon" /></svg>
                     </div>
-                    <div><b>QCC IT Help</b></div>
+                    <div><b>QCC TSSC</b></div>
                     <div class="muted" style="font-size: 0.7rem">
                       (718) 555-0142 &middot; demo number
                     </div>
@@ -2692,7 +2692,7 @@
           <h2>Service status and campus contacts</h2>
           <p class="lede">
             The assistant draws on this same content. Announcements expire, so
-            always check the CUNY IT Help announcements page for current status.
+            always check the TSSC announcements page for current status.
           </p>
           <div class="grid2">
             <div class="stack">
@@ -2707,7 +2707,7 @@
               <div class="card pad" style="overflow-x: auto">
                 <h3>Campus help desks</h3>
                 <p class="muted">
-                  Examples from the CUNY IT Help directory. Confirm hours before
+                  Examples from the TSSC directory. Confirm hours before
                   relying on them.
                 </p>
                 <table class="t">
@@ -2840,7 +2840,7 @@
       </main>
     </div>
     <footer>
-      Content adapted from the CUNY IT Help portal (cunyithelp.cuny.edu) for a
+      Content adapted from the TSSC portal (cunyithelp.cuny.edu) for a
       student proposal; confirm reuse permission before publishing. Colors,
       type, and the logo follow the Queensborough Community College Identity
       Standards; Interstate and Archer are embedded from the college's licensed
@@ -3017,7 +3017,7 @@
     </dialog>
 
     <script>
-      /* ================= Knowledge base (from the CUNY IT Help Q&A) ================= */
+      /* ================= Knowledge base (from the TSSC Q&A) ================= */
       const KB = {
         forgot: {
           label: "Forgot password",
@@ -3059,7 +3059,7 @@
         },
         outage: {
           label: "Outages and maintenance",
-          html: `Recent announcements listed:<ul><li>CUNY Login Self-Service maintenance, interruption from 8 PM on 10/07/26</li><li>Network maintenance from 6 PM on 10/09/26</li><li>Network maintenance from 7:30 AM on 10/10/26</li></ul>Those dates have passed. Check the CUNY IT Help announcements page for anything current. If something is down for you now, I can open a ticket.`,
+          html: `Recent announcements listed:<ul><li>CUNY Login Self-Service maintenance, interruption from 8 PM on 10/07/26</li><li>Network maintenance from 6 PM on 10/09/26</li><li>Network maintenance from 7:30 AM on 10/10/26</li></ul>Those dates have passed. Check the TSSC announcements page for anything current. If something is down for you now, I can open a ticket.`,
           sms: `No current maintenance in my notes (last listed: network work 10/09 and 10/10). Check cunyithelp.cuny.edu announcements, or reply TICKET to report a problem.`,
           voice: `The last maintenance I have on file was network work on October ninth and tenth, which is over. If something isn't working for you now, I can take a message for the help desk.`,
           escalate: true,
@@ -3068,7 +3068,7 @@
         greet: {
           label: "Greeting",
           html: `Hi! I can help with CUNY Login passwords, scam messages, preferred names, outages, and help desk contacts. What do you need?`,
-          sms: `Hi! QCC IT Help here. Ask about passwords, scams, outages, or contacts. Reply STOP to opt out.`,
+          sms: `Hi! QCC TSSC here. Ask about passwords, scams, outages, or contacts. Reply STOP to opt out.`,
           voice: `Hi! How can I help?`,
         },
         thanks: {
@@ -3080,8 +3080,8 @@
         bye: {
           label: "Goodbye",
           html: `Glad I could help. You can start a new conversation anytime.`,
-          sms: `Thanks for texting QCC IT Help.`,
-          voice: `Thanks for calling Queensborough IT Help. Goodbye.`,
+          sms: `Thanks for texting QCC TSSC.`,
+          voice: `Thanks for calling the Queensborough Technology Support and Service Center. Goodbye.`,
         },
       };
       const INTENTS = {
@@ -3161,6 +3161,8 @@
         ],
         contacts: [
           ["help desk", 3],
+          ["tssc", 3],
+          ["technology support", 3],
           ["helpdesk", 3],
           ["service desk", 3],
           ["contact", 3],
@@ -4077,7 +4079,7 @@
         if (up === "STOP") {
           smsOptOut = true;
           smsReply(
-            "You're unsubscribed from QCC IT Help texts. Reply START to resubscribe.",
+            "You're unsubscribed from QCC TSSC texts. Reply START to resubscribe.",
           );
           return;
         }
@@ -4253,7 +4255,7 @@
         setTimeout(
           () =>
             bot(
-              "Thanks for calling Queensborough IT Help. I'm the virtual assistant. In a few words, how can I help? You can say things like, I forgot my password, or, is the network down.",
+              "Thanks for calling the Queensborough Technology Support and Service Center. I'm the virtual assistant. In a few words, how can I help? You can say things like, I forgot my password, or, is the network down.",
             ),
           900,
         );
