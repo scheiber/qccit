@@ -2,7 +2,7 @@
 
 ## [Click here to see the live demo!](https://qccit.scheiber.dev/)
 
-A clickable prototype of a virtual Technology Support & Service Center (TSSC) for Queensborough Community College, built for a student proposal to replace the help desk phone line with AWS services (Amazon Connect, Lex, Transcribe, Translate, Polly, Lambda, DynamoDB, SNS).
+A clickable prototype of a virtual Technology Support & Service Center (TSSC) for Queensborough Community College, built for a student proposal to replace the service desk phone line with AWS services (Amazon Connect, Lex, Transcribe, Translate, Polly, Lambda, DynamoDB, SNS).
 
 It is a single HTML file with no build step and no server. Open it in a browser and it works offline in demo mode.
 
@@ -28,12 +28,12 @@ The left-hand navigation has seven sections.
 | **Phone call** | A simulated call. The assistant speaks; you can speak back (Chrome/Edge) or type. If it can't help, it takes a message, which becomes a ticket. Repeat calls from the same number update one ticket instead of creating duplicates. | Amazon Connect voice, Lex |
 | **Voice message** | After-hours voicemail. Pick a sample (English, Spanish, Mandarin, Korean, Bengali) or record your own. An animated pipeline shows upload, transcription, translation, ticket creation, and the staff alert. Recordings are capped at 90 seconds. | S3, Transcribe, Translate, Lambda, DynamoDB, SNS |
 
-### Help desk
+### Service desk
 
 | Section | What it shows |
 |---|---|
 | **Ticket queue** | The staff view: 18 sample tickets plus any you create, with filters (status, channel, assignee), priority, category, assignment, notes, translation-check flags, duplicate merging, and CSV export. Below it, an assistant activity panel (labeled as sample data) and a live feed of recent conversations. |
-| **Status and contacts** | Service announcements and the campus help desk directory, taken from the Q&A. |
+| **Status and contacts** | Service announcements and the campus service desk directory, taken from the Q&A. |
 | **Cost meter** | What your demo session would have cost on AWS, plus an annual projection with the cost analysis's scenarios A, B, and C. |
 
 ## Where the content comes from

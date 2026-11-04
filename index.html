@@ -2155,7 +2155,7 @@
           </svg>
           Voice message
         </button>
-        <div class="grp">Help desk</div>
+        <div class="grp">Service desk</div>
         <button role="tab" data-tab="staff">
           <svg
             viewBox="0 0 24 24"
@@ -2199,7 +2199,7 @@
         <!-- CHAT -->
         <section class="panel on" id="p-chat" role="tabpanel">
           <div class="kicker">Channel 1 &middot; Amazon Connect chat + Lex</div>
-          <h2>Ask the virtual help desk</h2>
+          <h2>Ask the virtual service desk</h2>
           <p class="lede">
             Answers come only from approved content (the TSSC Q&amp;A).
             Anything else becomes a ticket for a person, so the bot never
@@ -2259,7 +2259,7 @@
                 <ul class="muted" style="padding-left: 1.1em; margin: 6px 0 0">
                   <li>"locked out of cunyfirst"</li>
                   <li>"someone texted me asking for my MFA code"</li>
-                  <li>"what's the number for the help desk"</li>
+                  <li>"what's the number for the service desk"</li>
                   <li>"olvidé mi contraseña"</li>
                   <li>
                     "my Brightspace course is missing" (no approved answer,
@@ -2274,7 +2274,7 @@
         <!-- SMS -->
         <section class="panel" id="p-sms" role="tabpanel">
           <div class="kicker">Channel 2 &middot; Amazon Connect SMS</div>
-          <h2>Text the help desk</h2>
+          <h2>Text the service desk</h2>
           <p class="lede">
             Same assistant, shorter replies sized for a phone. Real texting
             needs carrier registration, so this is a simulation of what a
@@ -2356,7 +2356,7 @@
           <div class="kicker">
             Channel 3 &middot; Amazon Connect voice + Lex
           </div>
-          <h2>Call the help desk</h2>
+          <h2>Call the service desk</h2>
           <p class="lede">
             The assistant answers out loud and listens. Speak (Chrome or Edge)
             or type what the caller says. If it can't help, it takes a message,
@@ -2557,7 +2557,7 @@
 
         <!-- STAFF -->
         <section class="panel" id="p-staff" role="tabpanel">
-          <div class="kicker">Help desk staff view</div>
+          <div class="kicker">Service desk staff view</div>
           <h2>Ticket queue</h2>
           <p class="lede">
             Every hand-off from chat, text, phone, or voice message lands here.
@@ -2705,7 +2705,7 @@
                 <div id="annList"></div>
               </div>
               <div class="card pad" style="overflow-x: auto">
-                <h3>Campus help desks</h3>
+                <h3>Campus service desks</h3>
                 <p class="muted">
                   Examples from the TSSC directory. Confirm hours before
                   relying on them.
@@ -3039,21 +3039,21 @@
         },
         scam: {
           label: "Scam or MFA request",
-          html: `<b>That's a scam.</b> CUNY and campus IT never ask for your password or MFA codes by phone, text, or email.<ul><li>Don't approve an MFA prompt you didn't start yourself.</li><li>Don't click links or open attachments in unexpected messages.</li><li>If you already shared something or clicked, contact your campus help desk right away.</li></ul>`,
-          sms: `That's a scam. IT never asks for passwords or MFA codes. Don't approve prompts you didn't start. If you already shared info, reply HELP DESK for your campus contact.`,
-          voice: `That is a scam. CUNY and campus IT never ask for your password or MFA codes by phone, text, or email. Don't approve an MFA prompt you didn't start. If you already shared something, I can take a message for the help desk right now.`,
+          html: `<b>That's a scam.</b> CUNY and campus IT never ask for your password or MFA codes by phone, text, or email.<ul><li>Don't approve an MFA prompt you didn't start yourself.</li><li>Don't click links or open attachments in unexpected messages.</li><li>If you already shared something or clicked, contact your campus service desk right away.</li></ul>`,
+          sms: `That's a scam. IT never asks for passwords or MFA codes. Don't approve prompts you didn't start. If you already shared info, reply SERVICE DESK for your campus contact.`,
+          voice: `That is a scam. CUNY and campus IT never ask for your password or MFA codes by phone, text, or email. Don't approve an MFA prompt you didn't start. If you already shared something, I can take a message for the service desk right now.`,
           escalate: true,
         },
         name: {
           label: "Preferred name",
           html: `Changing your preferred name updates the first name in your CUNY Login username. It flows from CUNYfirst to the library system, online bookstore, Blackboard and Brightspace display names and rosters, DegreeWorks, Dropbox, Zoom, and Microsoft 365 apps such as Teams and SharePoint. The CUNYfirst Student Center uses it except where a legal name is required.<br><br><i>How to request the change isn't in my approved answers yet.</i> I can open a ticket so the Registrar's process gets to you.`,
           sms: `Your preferred name shows in CUNYfirst, Brightspace, Zoom, Teams and more. To request a change, reply TICKET and staff will follow up.`,
-          voice: `Your preferred name flows from CUNYfirst to Brightspace, Zoom, Microsoft 365, and more. I don't have the steps to request the change yet, so I can take a message for the help desk.`,
+          voice: `Your preferred name flows from CUNYfirst to Brightspace, Zoom, Microsoft 365, and more. I don't have the steps to request the change yet, so I can take a message for the service desk.`,
           escalate: true,
         },
         contacts: {
-          label: "Help desk contacts",
-          html: `Each campus has its own help desk. For Queensborough: <b>718-631-6348</b>, <a href="mailto:Servicedesk@qcc.cuny.edu">Servicedesk@qcc.cuny.edu</a>. University offices (central): 646-664-2311, <a href="mailto:service.desk@cuny.edu">service.desk@cuny.edu</a>. Other campuses are on the <b>Status and contacts</b> page. Confirm hours before visiting.`,
+          label: "Service desk contacts",
+          html: `Each campus has its own service desk. For Queensborough: <b>718-631-6348</b>, <a href="mailto:Servicedesk@qcc.cuny.edu">Servicedesk@qcc.cuny.edu</a>. University offices (central): 646-664-2311, <a href="mailto:service.desk@cuny.edu">service.desk@cuny.edu</a>. Other campuses are on the <b>Status and contacts</b> page. Confirm hours before visiting.`,
           sms: `QCC Service Desk: 718-631-6348, Servicedesk@qcc.cuny.edu. Central CUNY: 646-664-2311.`,
           voice: `The Queensborough service desk is seven one eight, six three one, six three four eight. You can also email service desk at q c c dot cuny dot edu.`,
         },
@@ -3061,13 +3061,13 @@
           label: "Outages and maintenance",
           html: `Recent announcements listed:<ul><li>CUNY Login Self-Service maintenance, interruption from 8 PM on 10/07/26</li><li>Network maintenance from 6 PM on 10/09/26</li><li>Network maintenance from 7:30 AM on 10/10/26</li></ul>Those dates have passed. Check the TSSC announcements page for anything current. If something is down for you now, I can open a ticket.`,
           sms: `No current maintenance in my notes (last listed: network work 10/09 and 10/10). Check cunyithelp.cuny.edu announcements, or reply TICKET to report a problem.`,
-          voice: `The last maintenance I have on file was network work on October ninth and tenth, which is over. If something isn't working for you now, I can take a message for the help desk.`,
+          voice: `The last maintenance I have on file was network work on October ninth and tenth, which is over. If something isn't working for you now, I can take a message for the service desk.`,
           escalate: true,
         },
         human: { label: "Talk to a person", html: "", sms: "", voice: "" },
         greet: {
           label: "Greeting",
-          html: `Hi! I can help with CUNY Login passwords, scam messages, preferred names, outages, and help desk contacts. What do you need?`,
+          html: `Hi! I can help with CUNY Login passwords, scam messages, preferred names, outages, and service desk contacts. What do you need?`,
           sms: `Hi! QCC TSSC here. Ask about passwords, scams, outages, or contacts. Reply STOP to opt out.`,
           voice: `Hi! How can I help?`,
         },
@@ -3797,7 +3797,7 @@
           [12, "Phone", "Left a message", "Ticket QCC-1000"],
           [17, "Text", "Outages and maintenance", "Answered"],
           [25, "Chat", "No approved answer", "Ticket QCC-0999"],
-          [29, "Phone", "Help desk contacts", "Answered"],
+          [29, "Phone", "Service desk contacts", "Answered"],
           [44, "Text", "Password rules", "Answered"],
           [52, "Chat", "Preferred name", "Answered"],
           [67, "Phone", "Forgot password", "Caller hung up"],
@@ -3822,7 +3822,7 @@
       const TOPICS = [
         ["Forgot password", 31],
         ["Scam or MFA", 18],
-        ["Help desk contacts", 12],
+        ["Service desk contacts", 12],
         ["Outages", 9],
         ["Password rules", 6],
         ["Preferred name", 6],
@@ -3844,7 +3844,7 @@
         "Someone asked for my MFA code",
         "Change my preferred name",
         "Is the network down?",
-        "Help desk phone number",
+        "Service desk phone number",
         "Talk to a person",
       ];
       function chatAdd(cls, html, opts = {}) {
@@ -3938,8 +3938,8 @@
           chatAdd(
             "bot",
             id
-              ? "I can get you to a person. I'll open a ticket and the help desk will follow up."
-              : "I don't have an approved answer for that, so I won't guess. I can open a ticket for the help desk.",
+              ? "I can get you to a person. I'll open a ticket and the service desk will follow up."
+              : "I don't have an approved answer for that, so I won't guess. I can open a ticket for the service desk.",
             { src: id ? "Hand-off" : "Fallback" },
           );
           chatBill(1);
@@ -3962,7 +3962,7 @@
         else if (id === "scam")
           renderChips([
             "I already shared my code",
-            "Help desk phone number",
+            "Service desk phone number",
             "Thanks",
           ]);
         else renderChips();
@@ -3998,7 +3998,7 @@
             original: lang !== "en" ? v("detail") : null,
           });
           logAct("Chat", "Ticket submitted", `Ticket ${ticket.id}`);
-          f.innerHTML = `<div class="tkt-ok">${merged ? "Added to your open ticket" : "Ticket created"}: <b>${ticket.id}</b>. The help desk has been notified and will reply to ${esc(v("contact"))}.</div>`;
+          f.innerHTML = `<div class="tkt-ok">${merged ? "Added to your open ticket" : "Ticket created"}: <b>${ticket.id}</b>. The service desk has been notified and will reply to ${esc(v("contact"))}.</div>`;
           chatBill(1);
           renderChips();
         };
@@ -4026,7 +4026,7 @@
             chatBill(1);
             chatAdd(
               "bot",
-              "Thanks for telling me. This needs a person quickly. Change your password now (managelogin.cuny.edu), then submit this ticket so the help desk can check your account.",
+              "Thanks for telling me. This needs a person quickly. Change your password now (managelogin.cuny.edu), then submit this ticket so the service desk can check your account.",
               { src: "Escalation" },
             );
             chatBill(1);
@@ -4129,7 +4129,7 @@
           );
           return;
         }
-        if (up === "HELP DESK") {
+        if (up === "SERVICE DESK" || up === "HELP DESK") {
           smsReply(KB.contacts.sms);
           return;
         }
@@ -4185,7 +4185,7 @@
         return [
           [4, "(718) 555-0129", "2:41", "Answered: forgot password"],
           [12, "(347) 555-0112", "3:05", "Message: ticket QCC-1000"],
-          [29, "(347) 555-0163", "1:12", "Answered: help desk contacts"],
+          [29, "(347) 555-0163", "1:12", "Answered: service desk contacts"],
           [67, "(917) 555-0148", "0:22", "Caller hung up"],
           [95, "(646) 555-0190", "2:18", "Answered: scam or MFA"],
         ].map(([ago, num, dur, out]) => ({ at: n - ago * m, num, dur, out }));
@@ -4302,7 +4302,7 @@
           call.ticket = r.ticket.id;
           call.mode = "done";
           bot(
-            `Thanks. Your message is ticket ${r.ticket.id.replace("-", " ")}${r.merged ? ", added to your open ticket" : ""}. The help desk will call you back. Is there anything else?`,
+            `Thanks. Your message is ticket ${r.ticket.id.replace("-", " ")}${r.merged ? ", added to your open ticket" : ""}. The service desk will call you back. Is there anything else?`,
           );
           return;
         }
@@ -4324,8 +4324,8 @@
           call.mode = "message";
           bot(
             (id === "human"
-              ? "Sure, I'll take a message for the help desk."
-              : "I don't have an approved answer for that, so I'll take a message for the help desk.") +
+              ? "Sure, I'll take a message for the service desk."
+              : "I don't have an approved answer for that, so I'll take a message for the service desk.") +
               " After the tone, say your name and describe the problem. Type or speak it now.",
           );
           return;
@@ -4507,7 +4507,7 @@
         ["Detect language", "Translate auto-detection"],
         ["Translate to English", "Only when needed; original kept"],
         ["Create ticket", "Lambda writes to DynamoDB, dedupes by caller"],
-        ["Notify help desk", "SNS email to the service desk"],
+        ["Notify service desk", "SNS email to the service desk"],
       ];
       function pipe(state) {
         $("pipe").innerHTML = STEPS.map(
