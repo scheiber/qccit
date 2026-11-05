@@ -1707,34 +1707,77 @@
           height: 34px;
         }
         .mark {
-          flex-basis: 100%;
+          grid-area: 1 / 1;
+          justify-self: start;
+          max-width: 100%;
           margin: 0;
-          padding: 12px 0 4px;
+          padding: 0;
+        }
+        .mark .logo {
+          max-width: 100%;
+        }
+        .site {
+          grid-area: 2 / 1;
+        }
+        .site .t1 {
+          font-size: 0.94rem;
+          text-wrap: balance;
         }
         .site .t2 {
           display: none;
         }
+        .band .spacer {
+          display: none;
+        }
+        .band .iconbtn {
+          grid-area: 1 / 2;
+          padding: 8px 12px;
+        }
+        .band .chip {
+          grid-area: 2 / 2;
+          justify-self: end;
+          white-space: nowrap;
+        }
+        /* logo and Settings on the top row, site name and mode on the second */
         .band-in {
-          row-gap: 0;
-          padding-bottom: 10px;
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto;
+          gap: 8px 12px;
+          padding: 10px 16px;
         }
         .wrap {
           grid-template-columns: 1fr;
           padding: 12px 16px 30px;
         }
+        /* two rows, so every section stays visible: student channels above, service desk below */
         nav.tabs {
-          flex-direction: row;
-          overflow-x: auto;
+          display: grid;
+          grid-template-columns: repeat(12, minmax(0, 1fr));
           position: static;
           gap: 4px;
-          padding-bottom: 4px;
         }
         nav.tabs .grp {
           display: none;
         }
         nav.tabs button {
-          white-space: nowrap;
-          padding: 8px 10px;
+          grid-column: span 3;
+          position: relative;
+          flex-direction: column;
+          justify-content: flex-start;
+          gap: 4px;
+          padding: 8px 2px;
+          font-size: 0.78rem;
+          text-align: center;
+        }
+        nav.tabs .grp ~ .grp ~ button {
+          grid-column: span 4;
+        }
+        nav.tabs .badge {
+          position: absolute;
+          top: 4px;
+          left: calc(50% + 12px);
+          margin-left: 0;
+          padding: 1px 6px;
         }
         .res {
           grid-template-columns: 1fr;
@@ -3425,14 +3468,6 @@
           );
         if (changed) {
           window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-          // on phones the tabs scroll sideways: bring the selected one into view without moving the page
-          const nav = document.querySelector("nav.tabs"),
-            btn = nav.querySelector(`[data-tab="${tab}"]`);
-          if (btn && nav.scrollWidth > nav.clientWidth)
-            nav.scrollTo({
-              left: btn.offsetLeft - nav.offsetLeft - 16,
-              behavior: "smooth",
-            });
         }
         document
           .querySelectorAll("section.panel")
