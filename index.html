@@ -1699,10 +1699,9 @@
           grid-template-columns: repeat(2, 1fr);
         }
       }
-      @media (max-width: 760px) {
-        .hide-sm {
-          display: none;
-        }
+      /* the header doesn't fit on one row below this width:
+         logo and Settings on the top row, site name and mode on the second */
+      @media (max-width: 980px) {
         .mark .logo {
           height: 34px;
         }
@@ -1731,6 +1730,7 @@
         }
         .band .iconbtn {
           grid-area: 1 / 2;
+          justify-self: end;
           padding: 8px 12px;
         }
         .band .chip {
@@ -1738,11 +1738,18 @@
           justify-self: end;
           white-space: nowrap;
         }
-        /* logo and Settings on the top row, site name and mode on the second */
         .band-in {
           display: grid;
           grid-template-columns: minmax(0, 1fr) auto;
           gap: 8px 12px;
+          padding: 10px 20px;
+        }
+      }
+      @media (max-width: 760px) {
+        .hide-sm {
+          display: none;
+        }
+        .band-in {
           padding: 10px 16px;
         }
         .wrap {
