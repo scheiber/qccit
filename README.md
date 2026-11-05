@@ -23,7 +23,7 @@ The left-hand navigation has seven sections.
 
 | Section | What it demonstrates | AWS services it stands in for |
 |---|---|---|
-| **Web chat** | A chat assistant that answers only from approved content (the TSSC Q&A). Anything it can't answer becomes a ticket instead of a guess. Answers can be read aloud. | Amazon Connect chat, Amazon Lex, Lambda |
+| **Web chat** | A chat assistant that answers only from approved content (the CUNY Q&A). Anything it can't answer becomes a ticket instead of a guess. Answers can be read aloud. | Amazon Connect chat, Amazon Lex, Lambda |
 | **Text message** | The same assistant in a phone mockup, with short SMS-sized replies and working STOP/START opt-out. | Amazon Connect SMS |
 | **Phone call** | A simulated call. The assistant speaks; you can speak back (Chrome/Edge) or type. If it can't help, it takes a message, which becomes a ticket. Repeat calls from the same number update one ticket instead of creating duplicates. | Amazon Connect voice, Lex |
 | **Voice message** | After-hours voicemail. Pick a sample (English, Spanish, Mandarin, Korean, Bengali) or record your own. An animated pipeline shows upload, transcription, translation, ticket creation, and the staff alert. Recordings are capped at 90 seconds. | S3, Transcribe, Translate, Lambda, DynamoDB, SNS |
@@ -38,7 +38,7 @@ The left-hand navigation has seven sections.
 
 ## Where the content comes from
 
-- **Assistant answers:** only from the *TSSC: Common Questions and Quick Fixes* Q&A, which is adapted from the TSSC portal (cunyithelp.cuny.edu). The assistant never makes up an answer; anything outside that content is handed off to a person as a ticket.
+- **Assistant answers:** only from the CUNY *Common Questions and Quick Fixes* Q&A, which is adapted from the CUNY portal (cunyithelp.cuny.edu). The assistant never makes up an answer; anything outside that content is handed off to a person as a ticket.
 - **Costs:** per-unit AWS rates from the project's cost risk analysis:
 
   | Item | Rate |

@@ -119,7 +119,7 @@
         --badge-bg: var(--marigold);
         --badge-fg: var(--midnight);
       }
-      :root[data-theme="light"] nav.tabs button[aria-selected="true"] .badge {
+      :root[data-theme="light"] nav.tabs button[aria-current="page"] .badge {
         background: var(--midnight);
         color: #ffffff;
       }
@@ -137,7 +137,7 @@
       }
       :root[data-theme="midnight"]
         nav.tabs
-        button[aria-selected="true"]
+        button[aria-current="page"]
         .badge {
         background: var(--marigold);
         color: var(--midnight);
@@ -163,7 +163,7 @@
       }
       :root[data-theme="marigold"]
         nav.tabs
-        button[aria-selected="true"]
+        button[aria-current="page"]
         .badge {
         background: var(--midnight);
         color: #ffffff;
@@ -234,7 +234,7 @@
       }
       :root[data-theme="contrast"]
         nav.tabs
-        button[aria-selected="true"]
+        button[aria-current="page"]
         .badge {
         background: #ffffff;
         color: var(--midnight);
@@ -543,7 +543,7 @@
         background: var(--nav-hover-bg);
         color: var(--nav-hover-fg);
       }
-      nav.tabs button[aria-selected="true"] {
+      nav.tabs button[aria-current="page"] {
         background: var(--nav-sel-bg);
         color: var(--nav-sel-fg);
       }
@@ -1749,6 +1749,9 @@
         .hide-sm {
           display: none;
         }
+        .band {
+          position: static;
+        }
         .band-in {
           padding: 10px 16px;
         }
@@ -2155,9 +2158,9 @@
     </div>
 
     <div class="wrap">
-      <nav class="tabs" role="tablist" aria-label="Demo sections">
+      <nav class="tabs" aria-label="Demo sections">
         <div class="grp">Student channels</div>
-        <button role="tab" data-tab="chat" aria-selected="true">
+        <button data-tab="chat" aria-current="page">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -2168,7 +2171,7 @@
           </svg>
           Web chat
         </button>
-        <button role="tab" data-tab="sms">
+        <button data-tab="sms">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -2180,7 +2183,7 @@
           </svg>
           Text message
         </button>
-        <button role="tab" data-tab="call">
+        <button data-tab="call">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -2193,7 +2196,7 @@
           </svg>
           Phone call
         </button>
-        <button role="tab" data-tab="vm">
+        <button data-tab="vm">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -2206,7 +2209,7 @@
           Voice message
         </button>
         <div class="grp">Service desk</div>
-        <button role="tab" data-tab="staff">
+        <button data-tab="staff">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -2218,7 +2221,7 @@
           Ticket queue
           <span class="badge" id="openBadge">0</span>
         </button>
-        <button role="tab" data-tab="status">
+        <button data-tab="status">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -2230,7 +2233,7 @@
           </svg>
           Status and contacts
         </button>
-        <button role="tab" data-tab="cost">
+        <button data-tab="cost">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -2247,11 +2250,11 @@
 
       <main>
         <!-- CHAT -->
-        <section class="panel on" id="p-chat" role="tabpanel">
+        <section class="panel on" id="p-chat">
           <div class="kicker">Channel 1 &middot; Amazon Connect chat + Lex</div>
           <h2>Welcome to the virtual service desk!</h2>
           <p class="lede">
-            Answers come only from approved content (the TSSC Q&amp;A).
+            Answers come only from approved content (the CUNY Q&amp;A).
             Anything else becomes a ticket for a person, so the bot never
             invents an answer.
           </p>
@@ -2322,7 +2325,7 @@
         </section>
 
         <!-- SMS -->
-        <section class="panel" id="p-sms" role="tabpanel">
+        <section class="panel" id="p-sms">
           <div class="kicker">Channel 2 &middot; Amazon Connect SMS</div>
           <h2>Text the service desk</h2>
           <p class="lede">
@@ -2402,7 +2405,7 @@
         </section>
 
         <!-- CALL -->
-        <section class="panel" id="p-call" role="tabpanel">
+        <section class="panel" id="p-call">
           <div class="kicker">
             Channel 3 &middot; Amazon Connect voice + Lex
           </div>
@@ -2536,7 +2539,7 @@
         </section>
 
         <!-- VOICEMAIL -->
-        <section class="panel" id="p-vm" role="tabpanel">
+        <section class="panel" id="p-vm">
           <div class="kicker">
             After hours &middot; S3, Transcribe, Translate, Lambda, SNS
           </div>
@@ -2606,7 +2609,7 @@
         </section>
 
         <!-- STAFF -->
-        <section class="panel" id="p-staff" role="tabpanel">
+        <section class="panel" id="p-staff">
           <div class="kicker">Service desk staff view</div>
           <h2>Ticket queue</h2>
           <p class="lede">
@@ -2737,12 +2740,12 @@
         </section>
 
         <!-- STATUS -->
-        <section class="panel" id="p-status" role="tabpanel">
+        <section class="panel" id="p-status">
           <div class="kicker">Reference content</div>
           <h2>Service status and campus contacts</h2>
           <p class="lede">
             The assistant draws on this same content. Announcements expire, so
-            always check the TSSC announcements page for current status.
+            always check the CUNY announcements page for current status.
           </p>
           <div class="grid2">
             <div class="stack">
@@ -2757,7 +2760,7 @@
               <div class="card pad" style="overflow-x: auto">
                 <h3>Campus service desks</h3>
                 <p class="muted">
-                  Examples from the TSSC directory. Confirm hours before
+                  Examples from the CUNY directory. Confirm hours before
                   relying on them.
                 </p>
                 <table class="t">
@@ -2810,7 +2813,7 @@
         </section>
 
         <!-- COST -->
-        <section class="panel" id="p-cost" role="tabpanel">
+        <section class="panel" id="p-cost">
           <div class="kicker">From the cost risk analysis</div>
           <h2>Cost meter</h2>
           <p class="lede">
@@ -2890,11 +2893,9 @@
       </main>
     </div>
     <footer>
-      Content adapted from the TSSC portal (cunyithelp.cuny.edu) for a
-      student proposal; confirm reuse permission before publishing. Colors,
-      type, and the logo follow the Queensborough Community College Identity
-      Standards; Interstate and Archer are embedded from the college's licensed
-      files. Phone numbers marked 555 are fictional.
+      Content adapted from the CUNY portal (cunyithelp.cuny.edu) for a student
+      proposal. Colors, type, and the logo follow the Queensborough Community
+      College Identity Standards. Phone numbers marked 555 are fictional.
     </footer>
 
     <div class="toasts" id="toasts" aria-live="polite"></div>
@@ -3057,7 +3058,7 @@
         <select class="t" id="voiceSel"></select>
       </div>
       <div class="df">
-        <button class="btn danger sm" onclick="resetAll()">
+        <button class="btn danger sm" onclick="$('confirmReset').showModal()">
           Reset demo data
         </button>
         <span style="flex: 1"></span>
@@ -3066,8 +3067,21 @@
       </div>
     </dialog>
 
+    <dialog id="confirmReset" style="max-width: 420px">
+      <div class="dh"><h3>Reset the demo?</h3></div>
+      <div class="db">
+        Your tickets and costs are cleared and the sample tickets come back.
+      </div>
+      <div class="df">
+        <button class="btn ghost" onclick="$('confirmReset').close()">
+          Cancel
+        </button>
+        <button class="btn danger" onclick="resetAll()">Reset demo data</button>
+      </div>
+    </dialog>
+
     <script>
-      /* ================= Knowledge base (from the TSSC Q&A) ================= */
+      /* ================= Knowledge base (from the CUNY Q&A) ================= */
       const KB = {
         forgot: {
           label: "Forgot password",
@@ -3109,7 +3123,7 @@
         },
         outage: {
           label: "Outages and maintenance",
-          html: `Recent announcements listed:<ul><li>CUNY Login Self-Service maintenance, interruption from 8 PM on 10/07/26</li><li>Network maintenance from 6 PM on 10/09/26</li><li>Network maintenance from 7:30 AM on 10/10/26</li></ul>Those dates have passed. Check the TSSC announcements page for anything current. If something is down for you now, I can open a ticket.`,
+          html: `Recent announcements listed:<ul><li>CUNY Login Self-Service maintenance, interruption from 8 PM on 10/07/26</li><li>Network maintenance from 6 PM on 10/09/26</li><li>Network maintenance from 7:30 AM on 10/10/26</li></ul>Those dates have passed. Check the CUNY announcements page for anything current. If something is down for you now, I can open a ticket.`,
           sms: `No current maintenance in my notes (last listed: network work 10/09 and 10/10). Check cunyithelp.cuny.edu announcements, or reply TICKET to report a problem.`,
           voice: `The last maintenance I have on file was network work on October ninth and tenth, which is over. If something isn't working for you now, I can take a message for the service desk.`,
           escalate: true,
@@ -3466,12 +3480,14 @@
       }
 
       /* ================= Tabs ================= */
-      function go(tab) {
+      function go(tab, fromHistory) {
         const changed = !document.querySelector("#p-" + tab + ".on");
         document
           .querySelectorAll("nav.tabs button")
           .forEach((b) =>
-            b.setAttribute("aria-selected", b.dataset.tab === tab),
+            b.dataset.tab === tab
+              ? b.setAttribute("aria-current", "page")
+              : b.removeAttribute("aria-current"),
           );
         if (changed) {
           window.scrollTo({ top: 0, left: 0, behavior: "instant" });
@@ -3485,10 +3501,18 @@
           const el = $(id);
           if (el) el.scrollTop = el.scrollHeight;
         });
-        try {
-          history.replaceState(null, "", "#" + tab);
-        } catch (e) {}
+        if (changed && !fromHistory) {
+          try {
+            history.pushState(null, "", "#" + tab);
+          } catch (e) {}
+        }
       }
+      // Back and Forward move between sections
+      history.scrollRestoration = "manual";
+      window.addEventListener("popstate", () => {
+        const h = location.hash.slice(1) || "chat";
+        if (document.getElementById("p-" + h)) go(h, true);
+      });
       document
         .querySelectorAll("nav.tabs button")
         .forEach((b) => b.addEventListener("click", () => go(b.dataset.tab)));
@@ -4944,12 +4968,7 @@
         $("modeText").textContent = live ? "Live mode" : "Demo mode";
       }
       function resetAll() {
-        if (
-          !confirm(
-            "Reset the demo? Your tickets and costs are cleared and the sample tickets come back.",
-          )
-        )
-          return;
+        $("confirmReset").close();
         try {
           localStorage.removeItem("qccItDemo");
         } catch (e) {}
@@ -5304,7 +5323,7 @@
           $("cMic").title =
             "Speech recognition needs Chrome or Edge. Type instead.";
         const h = (location.hash || "").slice(1);
-        if (document.getElementById("p-" + h)) go(h);
+        if (document.getElementById("p-" + h)) go(h, true);
         setInterval(() => {
           if (document.querySelector("#p-staff.on")) renderTickets();
         }, 30000);
