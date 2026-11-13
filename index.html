@@ -2752,8 +2752,8 @@
               <div class="card pad">
                 <h3>Recent announcements</h3>
                 <p class="muted">
-                  Posted the week of Oct 5, 2026. These dates have passed and
-                  may already be removed from the portal.
+                  From the CUNY announcements page as of Nov 12, 2026. Check
+                  there for updates.
                 </p>
                 <div id="annList"></div>
               </div>
@@ -3123,9 +3123,9 @@
         },
         outage: {
           label: "Outages and maintenance",
-          html: `Recent announcements listed:<ul><li>CUNY Login Self-Service maintenance, interruption from 8 PM on 10/07/26</li><li>Network maintenance from 6 PM on 10/09/26</li><li>Network maintenance from 7:30 AM on 10/10/26</li></ul>Those dates have passed. Check the CUNY announcements page for anything current. If something is down for you now, I can open a ticket.`,
-          sms: `No current maintenance in my notes (last listed: network work 10/09 and 10/10). Check cunyithelp.cuny.edu announcements, or reply TICKET to report a problem.`,
-          voice: `The last maintenance I have on file was network work on October ninth and tenth, which is over. If something isn't working for you now, I can take a message for the service desk.`,
+          html: `CUNY announcements as of 11/12/26:<ul><li><b>Outlook email outage:</b> a Microsoft service disruption since 12:57 PM on 11/12/26 is affecting Outlook on the web, desktop, and mobile. There's no estimated fix time yet.</li><li><b>CUNY Login maintenance:</b> intermittent interruptions on Saturday 11/14 and Sunday 11/15, 7 AM to 4 PM both days.</li><li><b>CUNYBuy unavailable:</b> from 7 PM Friday 11/13 to 8 AM Monday 11/16 for a system upgrade.</li></ul>Check the CUNY announcements page for updates. If something else is down for you, I can open a ticket.`,
+          sms: `CUNY alerts 11/12: Outlook email is down (Microsoft outage, no fix time yet). CUNY Login maintenance Sat-Sun 11/14-15 7AM-4PM. Reply TICKET to report a problem.`,
+          voice: `As of November twelfth, Outlook email is down because of a Microsoft service problem, and there's no estimated fix time yet. CUNY Login also has maintenance on Saturday and Sunday, November fourteenth and fifteenth, from seven A M to four P M, with intermittent interruptions. If something else isn't working for you, I can take a message for the service desk.`,
           escalate: true,
         },
         human: { label: "Talk to a person", html: "", sms: "", voice: "" },
@@ -3258,6 +3258,7 @@
           ["slow", 2],
           ["planned", 2],
           ["is it just me", 3],
+          ["outlook", 2],
         ],
         human: [
           ["human", 4],
@@ -4794,14 +4795,41 @@
           "service.desk@cuny.edu",
         ],
       ];
+      // [date shown, text, start, end]; no end means ongoing until updated
       const ANN = [
         [
-          "Oct 7",
-          "CUNY Login Self-Service maintenance, with interruption from 8 PM.",
+          "Nov 12",
+          "Outlook email outage from a Microsoft service disruption, reported at 12:57 PM. Outlook on the web, desktop, and mobile are affected, with no estimated fix time yet.",
+          "2026-11-12T12:57-05:00",
+          null,
         ],
-        ["Oct 9", "Network maintenance from 6 PM."],
-        ["Oct 10", "Network maintenance from 7:30 AM."],
+        [
+          "Nov 13",
+          "CUNYBuy unavailable from 7 PM Friday 11/13 to 8 AM Monday 11/16 for a system upgrade.",
+          "2026-11-13T19:00-05:00",
+          "2026-11-16T08:00-05:00",
+        ],
+        [
+          "Nov 14",
+          "CUNY Login single sign-on maintenance from 7 AM to 4 PM, with intermittent interruptions.",
+          "2026-11-14T07:00-05:00",
+          "2026-11-14T16:00-05:00",
+        ],
+        [
+          "Nov 15",
+          "CUNY Login single sign-on maintenance from 7 AM to 4 PM, with intermittent interruptions.",
+          "2026-11-15T07:00-05:00",
+          "2026-11-15T16:00-05:00",
+        ],
       ];
+      function annPill(start, end) {
+        const now = Date.now();
+        if (end && now > Date.parse(end))
+          return '<span class="pill done">Past</span>';
+        if (now < Date.parse(start))
+          return '<span class="pill prog">Upcoming</span>';
+        return '<span class="pill flag">Ongoing</span>';
+      }
       function renderStatus() {
         $("dirBody").innerHTML = DIR.map(
           (r) =>
@@ -4809,7 +4837,7 @@
         ).join("");
         $("annList").innerHTML = ANN.map(
           (a) =>
-            `<div class="ann"><div class="d">${a[0]}, 2026</div><p>${a[1]} <span class="pill done">Past</span></p></div>`,
+            `<div class="ann"><div class="d">${a[0]}, 2026</div><p>${a[1]} ${annPill(a[2], a[3])}</p></div>`,
         ).join("");
       }
 

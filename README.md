@@ -33,12 +33,12 @@ The left-hand navigation has seven sections.
 | Section | What it shows |
 |---|---|
 | **Ticket queue** | The staff view: 18 sample tickets plus any you create, with filters (status, channel, assignee), priority, category, assignment, notes, translation-check flags, duplicate merging, and CSV export. Below it, an assistant activity panel (labeled as sample data) and a live feed of recent conversations. |
-| **Status and contacts** | Service announcements and the campus service desk directory, taken from the Q&A. |
+| **Status and contacts** | Service announcements from the CUNY announcements page, and the campus service desk directory from the Q&A. |
 | **Cost meter** | What your demo session would have cost on AWS, plus an annual projection with the cost analysis's scenarios A, B, and C. |
 
 ## Where the content comes from
 
-- **Assistant answers:** only from the CUNY *Common Questions and Quick Fixes* Q&A, which is adapted from the CUNY portal (cunyithelp.cuny.edu). The assistant never makes up an answer; anything outside that content is handed off to a person as a ticket.
+- **Assistant answers:** only from the CUNY *Common Questions and Quick Fixes* Q&A, which is adapted from the CUNY portal (cunyithelp.cuny.edu), and, for outages and maintenance, the CUNY announcements page as of November 12, 2026. The assistant never makes up an answer; anything outside that content is handed off to a person as a ticket.
 - **Costs:** per-unit AWS rates from the project's cost risk analysis:
 
   | Item | Rate |
@@ -166,4 +166,4 @@ These source documents aren't in this repository; they're kept with the project'
 - The assistant matches keywords against a fixed set of answers; it isn't a real language model. Live mode connects the chat and text channels to an actual Lex bot.
 - Translation in demo mode uses pre-written translations for the sample voice messages. Recordings in other languages show a placeholder unless live services are added.
 - Phone calls, SMS, and email alerts are simulated. Real phone numbers and texting need Amazon Connect and carrier registration, which aren't available in a free Learner Lab (see the sandbox plan PDF).
-- Announcements and directory entries are from the Q&A dated October 8, 2026, and may be out of date.
+- Announcements are from the CUNY announcements page as of November 12, 2026, and directory entries are from the Q&A dated October 8, 2026. Both may be out of date.
