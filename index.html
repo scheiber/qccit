@@ -2752,7 +2752,7 @@
               <div class="card pad">
                 <h3>Recent announcements</h3>
                 <p class="muted">
-                  From the CUNY announcements page as of Nov 12, 2026. Check
+                  From the CUNY announcements page as of Nov 13, 2026. Check
                   there for updates.
                 </p>
                 <div id="annList"></div>
@@ -3123,9 +3123,9 @@
         },
         outage: {
           label: "Outages and maintenance",
-          html: `CUNY announcements as of 11/12/26:<ul><li><b>Outlook email outage:</b> a Microsoft service disruption since 12:57 PM on 11/12/26 is affecting Outlook on the web, desktop, and mobile. There's no estimated fix time yet.</li><li><b>CUNY Login maintenance:</b> intermittent interruptions on Saturday 11/14 and Sunday 11/15, 7 AM to 4 PM both days.</li><li><b>CUNYBuy unavailable:</b> from 7 PM Friday 11/13 to 8 AM Monday 11/16 for a system upgrade.</li></ul>Check the CUNY announcements page for updates. If something else is down for you, I can open a ticket.`,
-          sms: `CUNY alerts 11/12: Outlook email is down (Microsoft outage, no fix time yet). CUNY Login maintenance Sat-Sun 11/14-15 7AM-4PM. Reply TICKET to report a problem.`,
-          voice: `As of November twelfth, Outlook email is down because of a Microsoft service problem, and there's no estimated fix time yet. CUNY Login also has maintenance on Saturday and Sunday, November fourteenth and fifteenth, from seven A M to four P M, with intermittent interruptions. If something else isn't working for you, I can take a message for the service desk.`,
+          html: `CUNY announcements as of 11/13/26:<ul><li><b>Outlook email restored:</b> after a Microsoft service disruption that began at 12:57 PM on 11/12/26, email is working again as of 11/13. Microsoft is still monitoring for a full fix.</li><li><b>CUNYBuy unavailable:</b> from 7 PM Friday 11/13 to 8 AM Monday 11/16 for a system upgrade.</li><li><b>CUNY Login maintenance:</b> intermittent interruptions on Sunday 11/15, 7 AM to 4 PM.</li></ul>Check the CUNY announcements page for updates. If something is still down for you, I can open a ticket.`,
+          sms: `CUNY alerts 11/13: Outlook email is working again after the 11/12 Microsoft outage. CUNY Login maintenance Sun 11/15 7AM-4PM. Reply TICKET to report a problem.`,
+          voice: `As of November thirteenth, Outlook email is working again after the Microsoft outage on November twelfth, though Microsoft is still monitoring it. CUNY Login has maintenance on Sunday, November fifteenth, from seven A M to four P M, with intermittent interruptions. If something isn't working for you, I can take a message for the service desk.`,
           escalate: true,
         },
         human: { label: "Talk to a person", html: "", sms: "", voice: "" },
@@ -4799,21 +4799,15 @@
       const ANN = [
         [
           "Nov 12",
-          "Outlook email outage from a Microsoft service disruption, reported at 12:57 PM. Outlook on the web, desktop, and mobile are affected, with no estimated fix time yet.",
+          "Outlook email outage from a Microsoft service disruption, reported at 12:57 PM. Email was working again by 8:31 AM on 11/13, and Microsoft is still monitoring for a full fix.",
           "2026-11-12T12:57-05:00",
-          null,
+          "2026-11-13T08:31-05:00",
         ],
         [
           "Nov 13",
           "CUNYBuy unavailable from 7 PM Friday 11/13 to 8 AM Monday 11/16 for a system upgrade.",
           "2026-11-13T19:00-05:00",
           "2026-11-16T08:00-05:00",
-        ],
-        [
-          "Nov 14",
-          "CUNY Login single sign-on maintenance from 7 AM to 4 PM, with intermittent interruptions.",
-          "2026-11-14T07:00-05:00",
-          "2026-11-14T16:00-05:00",
         ],
         [
           "Nov 15",
