@@ -3080,6 +3080,24 @@
       </div>
     </dialog>
 
+    <dialog id="gambler" style="max-width: 720px">
+      <div class="dh"><h3>You got to know when to hold 'em</h3></div>
+      <div class="db">
+        <iframe
+          id="gamblerVid"
+          title="Kenny Rogers, The Gambler"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+          style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0"
+        ></iframe>
+      </div>
+      <div class="df">
+        <button class="btn" autofocus onclick="$('gambler').close()">
+          Know when to walk away
+        </button>
+      </div>
+    </dialog>
+
     <script>
       /* ================= Knowledge base (from the CUNY Q&A) ================= */
       const KB = {
@@ -3974,12 +3992,22 @@
         chatAdd("bot", KB.greet.html, { src: "Greeting" });
         renderChips();
       }
+      // easter egg: the send is a user gesture, so the video can autoplay with sound
+      function openGambler() {
+        $("gamblerVid").src =
+          "https://www.youtube.com/embed/7hx4gdlfamo?autoplay=1";
+        $("gambler").showModal();
+      }
+      $("gambler").addEventListener("close", () =>
+        $("gamblerVid").removeAttribute("src"),
+      );
       async function chatSend(e) {
         if (e) e.preventDefault();
         const text = $("chatIn").value.trim();
         if (!text) return;
         $("chatIn").value = "";
         chatAdd("me", esc(text));
+        if (/gambler|kenny/i.test(text)) return openGambler();
         chatBill(1);
         const typing = chatAdd(
           "bot",
