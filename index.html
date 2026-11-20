@@ -499,6 +499,11 @@
         text-align: center;
         padding: 5px 12px;
       }
+      .notice a {
+        color: inherit;
+        font-weight: 700;
+        white-space: nowrap;
+      }
 
       /* Layout */
       .wrap {
@@ -2155,6 +2160,11 @@
     <div class="notice">
       Student prototype for a proposal. Not an official CUNY or Queensborough
       service. Use made-up names and IDs only.
+      <a
+        href="https://www.youtube.com/watch?v=L2Ope-KDX1E"
+        onclick="openTutorial(); return false"
+        >Watch the walkthrough</a
+      >
     </div>
 
     <div class="wrap">
@@ -3080,21 +3090,23 @@
       </div>
     </dialog>
 
-    <dialog id="gambler" style="max-width: 720px">
-      <div class="dh"><h3>You got to know when to hold 'em</h3></div>
+    <dialog id="video" style="max-width: 720px">
+      <div class="dh"><h3 id="videoTitle"></h3></div>
       <div class="db">
         <iframe
-          id="gamblerVid"
-          title="Kenny Rogers, The Gambler"
+          id="videoFrame"
           allow="autoplay; encrypted-media; picture-in-picture"
           allowfullscreen
           style="display: block; width: 100%; aspect-ratio: 16 / 9; border: 0"
         ></iframe>
       </div>
       <div class="df">
-        <button class="btn" autofocus onclick="$('gambler').close()">
-          Know when to walk away
-        </button>
+        <button
+          class="btn"
+          id="videoClose"
+          autofocus
+          onclick="$('video').close()"
+        ></button>
       </div>
     </dialog>
 
@@ -3992,15 +4004,30 @@
         chatAdd("bot", KB.greet.html, { src: "Greeting" });
         renderChips();
       }
-      // easter egg: the send is a user gesture, so the video can autoplay with sound
-      function openGambler() {
-        $("gamblerVid").src =
-          "https://www.youtube.com/embed/7hx4gdlfamo?autoplay=1";
-        $("gambler").showModal();
+      /* ================= Video modal ================= */
+      // opened from a click or a chat send, so the video can autoplay with sound
+      function openVideo(id, title, closeLabel = "Close") {
+        $("videoTitle").textContent = title;
+        $("videoClose").textContent = closeLabel;
+        $("videoFrame").title = title;
+        $("videoFrame").src =
+          "https://www.youtube.com/embed/" + id + "?autoplay=1";
+        $("video").showModal();
       }
-      $("gambler").addEventListener("close", () =>
-        $("gamblerVid").removeAttribute("src"),
+      $("video").addEventListener("close", () =>
+        $("videoFrame").removeAttribute("src"),
       );
+      function openTutorial() {
+        openVideo("L2Ope-KDX1E", "How the demo works");
+      }
+      // easter egg
+      function openGambler() {
+        openVideo(
+          "7hx4gdlfamo",
+          "You got to know when to hold 'em",
+          "Know when to walk away",
+        );
+      }
       async function chatSend(e) {
         if (e) e.preventDefault();
         const text = $("chatIn").value.trim();

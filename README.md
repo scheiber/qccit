@@ -2,6 +2,8 @@
 
 ## [Click here to see the live demo!](https://qccit.scheiber.dev/)
 
+New to the demo? [Watch the walkthrough video](https://www.youtube.com/watch?v=L2Ope-KDX1E), or open it from the link at the top of the demo.
+
 A clickable prototype of a virtual Technology Support & Service Center (TSSC) for Queensborough Community College, built for a student proposal to replace the service desk phone line with AWS services (Amazon Connect, Lex, Transcribe, Translate, Polly, Lambda, DynamoDB, SNS).
 
 It is a single HTML file with no build step and no server. Open it in a browser and it works offline in demo mode.
